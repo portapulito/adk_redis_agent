@@ -2,7 +2,7 @@
 import os
 from google.adk.agents import LlmAgent
 from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset, SseServerParams
-
+from . genai_query_tool import embed_query_tool
 # Configurazione dell'agente Redis
 root_agent = LlmAgent(
     model='gemini-2.0-flash',
@@ -21,6 +21,6 @@ root_agent = LlmAgent(
             connection_params=SseServerParams(
                 url="http://127.0.0.1:8000/sse"
             )
-        )
+        ), embed_query_tool
     ]
 )
